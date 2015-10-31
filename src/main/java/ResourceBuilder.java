@@ -44,15 +44,15 @@ public class ResourceBuilder {
         Resource person = new QueryModel().getPerson(id);
 
         // Create new action resource
-        Property actionProp = rdfModel.createProperty(baseURI + id + "#action");
+        Property actionProp = rdfModel.createProperty(baseURI + "action");
         Resource newAction = rdfModel.createResource();
 
         // Action name property
-        Property actionNameProp = rdfModel.createProperty(baseURI + id + "#action");
+        Property actionNameProp = rdfModel.createProperty(baseURI + "action/" + action + "#name");
         newAction.addProperty(actionNameProp, action);
 
         // Datetime property
-        Property dateTimeProp = rdfModel.createProperty(baseURI + id + "#action");
+        Property dateTimeProp = rdfModel.createProperty(baseURI + "action/" + action + "#datetime");
         newAction.addProperty(dateTimeProp, dateTime);
 
         // Add the new action resource to the person
