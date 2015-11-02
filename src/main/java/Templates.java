@@ -4,7 +4,7 @@
 public class Templates {
 
     public String ikDoe(String action) {
-        return "Zo, zo. Jij bent goed bezig door te " + action + " fietsen!";
+        return "Zo, zo. Jij bent goed bezig door te " + action + "!";
     }
 
 }

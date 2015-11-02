@@ -1,16 +1,19 @@
-import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.base.Sys;
+import org.apache.jena.rdf.model.*;
 
 import java.io.File;
-import java.nio.file.Files;
 
 /**
  * Gets input from user and processes it within Jena
  */
 public class InputProcessor {
 
+    private static final String baseURI = "http://jena-test.com/";
     private static final String fileName = "rdf-data.rdf";
 
     public static void main(String[] args) {
+        System.out.println("Pietje: " + "Ik heb vandaag gefietsd");
+
         String id = "pietje";
 
         // Clear the RDF file
@@ -42,7 +45,14 @@ public class InputProcessor {
         QueryModel query = new QueryModel();
         Resource person = query.getPerson(id);
 
+        // TODO: query the RDF model to get back the lastest action
+        // Get the action
+        Bag actions = query.getAction(id);
+        String actionString = "fietsen";
+
         // Translate the query results to a Dutch response
+        Templates template = new Templates();
+        System.out.println("Virtual Coach: " + template.ikDoe(actionString));
 
     }
 
